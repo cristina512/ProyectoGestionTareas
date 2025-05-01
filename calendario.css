@@ -1,0 +1,47 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f3f4f8;
+    margin: 0;
+    padding: 30px;
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .day-name, .day {
+    background: #fff;
+    padding: 10px;
+    min-height: 80px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: background 0.2s ease;
+  }
+  .day-name {
+    background: #e0e7ff;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+  }
+  .day {
+    position: relative;
+  }
+  .day:hover {
+    background: #f0f4ff;
+  }
+  .day-number {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  
