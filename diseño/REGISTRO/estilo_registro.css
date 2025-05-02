@@ -1,0 +1,304 @@
+/* Estilos generales */
+:root {
+    --primary-color: #0e2847;       
+    --secondary-color: #1a365d;     
+    --accent-color: #ff66a2;        
+    --light-color: #2a4a7a;         
+    --dark-color: #ffffff;          
+    --success-color: #70f191;       
+    --warning-color: #ffcc5c;       
+    --danger-color: #ff6b6b;        
+    --text-color: #ffffff;          
+    --text-light: #c9d6ea;          
+    --marketing-color: #4bb8ff;     
+    --dev-color: #f170b5;           
+    --seo-color: #70f191;           
+    --card-color: #1a365d;          
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container-header {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo h1 {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.progress-bar {
+    width: 120px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--accent-color); 
+    transition: width 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color); 
+}
+
+.nav-links a.active {
+    color: var(--accent-color); 
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-login {
+    color: var(--accent-color); 
+    border: 1px solid var(--accent-color);
+    background: transparent;
+}
+
+.btn-login:hover {
+    background-color: var(--accent-color); 
+    color: white;
+}
+
+.btn-register {
+    background-color: var(--accent-color); 
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: #e0558c; 
+}
+
+.header-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.kanban-head {
+    margin-bottom: 25px;
+}
+
+.kanban-head-title {
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+
+
+
+/* Estilos para formulario de login - Coinciden exactamente con registro */
+.auth-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.auth-header p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+    background-color: #f9f9f9;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: white;
+}
+
+.form-extra {
+    text-align: right;
+    margin-top: 8px;
+}
+
+.forgot-password {
+    color: var(--text-light);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+.text-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilo activo para botón de navegación */
+.btn-login.active {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .auth-header h2 {
+        font-size: 22px;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Flow - Tablero Kanban</title>
+    <link rel="stylesheet" href="estilo_index.css">
+</head>
+<body>
+
+    <header>
+        <div class="container-header">
+            <nav class="navbar">
+                
+                <div class="logo">
+                    <img src="../logo.png" alt="TaskFlow Logo">
+                    <h1>TaskFlow</h1>
+                    
+                    <div class="progress-container">
+                        <div class="status-bar">
+                            <span>05/12 Tareas · 10 Horas</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 41%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Tablero</a></li>
+                    <li><a href="../CALENDARIO/calendario.html">Calendario</a></li>
+                    <li><a href="../LOGIN/iniciosesion.html" class="btn btn-login">Iniciar Sesión</a></li>
+                    <li><a href="../REGISTRO/registro.html" class="btn btn-register">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="container">
+        <div class="kanban-head">
+            <strong class="kanban-head-title">Kanban Board</strong>
+        </div>
+
+        <div class="kanban-table">
+
+            <div class="kanban-block kanban-form">
+                <strong class="kanban-form-title">Tarea</strong>
+
+                <div class="container-inputs">
+                    <strong class="strong-input">Nombre Tarea: </strong>
+                    <input type="text" id="tarea-nombre" class="input-text" placeholder="Escribe el nombre de la tarea">
+
+                    <strong class="strong-input">Descripción Tarea</strong>
+                    <textarea type="text" id="tarea-descripcion" class="textarea-text" rows="4" placeholder="Añade una descripción"></textarea>
+
+                    <strong class="strong-input">Responsable Tarea: </strong>
+                    <input type="text" id="tarea-responsable" class="input-text" placeholder="Asigna a un responsable">
+                </div>
+
+                <input type="button" class="btn-crear" id="btn-crear-editar" value="Crear Tarea" onclick="crearTarea(event)">
+
+            </div>
+
+            <div class="kanban-block" id="pendientes" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>TO DO</strong>
+            </div>
+
+            <div class="kanban-block" id="procesos" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>IN PROGRESS</strong>
+            </div>
+            
+            <div class="kanban-block" id="completados" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <strong>DONE</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
