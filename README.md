@@ -33,10 +33,10 @@ Permite crear, organizar y hacer seguimiento de tareas con etiquetas, prioridade
 
 ## 💻 Equipo
 
-- Cristina
-- Ángel
-- Diego
-- Francisco
+- Cristina González
+- Ángel Romero
+- Diego García
+- Francisco Franco
 
 # ProyectoGestionTareas
 Recogida e integración de las asignaturas para la creación de una aplicación de gestión de tareas para la asignatura de proyecto. Curso 2024/2025
