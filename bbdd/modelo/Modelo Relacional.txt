@@ -1,0 +1,8 @@
+USUARIO(id_usuario, nombre, email, password, fecha_registro, avatar, rol)
+EQUIPO(id_equipo, nombre, descripcio, fecha_creacion, id_usuario_lider)
+USUARIO_EQUIPO(id_usuario, id_equipo, fecha_union, rol)
+PROYECTO(id_proyecto, nombre, descripcion, fecha_inicio, fecha_fin, estado, id_equipo)
+ETIQUETA(id_etiqueta, nombre, color, id_usuario, id_equipo)
+TAREA(id_tarea, titulo, descripcion, fecha_creacion, fecha_vencimiento, prioridad, estado, id_usuario_creado, id_usuario_asignado, id_proyecto)
+TAREA_ETIQUETA(id_tarea, id_etiqueta)
+COMENTARIO(id_comentario, contenido, fecha_creacion, id_usuario, id_tarea)
