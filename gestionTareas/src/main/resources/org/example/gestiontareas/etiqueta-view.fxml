@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.debbddajavafx.Presentacion.EtiquetasController">
+    <ComboBox fx:id="comboEtiquetas" />
+    <TextField fx:id="txtCodigo" promptText="Código" />
+    <TextField fx:id="txtDescripcion" promptText="Descripción" />
+    <Button text="Añadir" onAction="#anadirEtiqueta"/>
+    <Button text="Modificar" onAction="#modificarEtiqueta"/>
+    <Button text="Borrar" onAction="#borrarEtiqueta"/>
+    <Button text="Cerrar" onAction="#cerrarVentana"/>
+</VBox>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.gestiontareas.EtiquetaView"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>

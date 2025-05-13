@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.gestiontareas.EquipoView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EquipoController">
+    <children>
+        <TableView fx:id="tablaEquipo" layoutX="14" layoutY="14" prefHeight="200" prefWidth="400">
+            <columns>
+                <TableColumn text="ID" fx:id="colId" />
+                <TableColumn text="Nombre" fx:id="colNombre" />
+            </columns>
+        </TableView>
+        <TextField fx:id="txtNombre" layoutX="14" layoutY="230" promptText="Nombre" />
+        <Button text="Agregar" layoutX="14" layoutY="270" onAction="#agregarEquipo" />
+        <Button text="Editar" layoutX="90" layoutY="270" onAction="#editarEquipo" />
+        <Button text="Eliminar" layoutX="160" layoutY="270" onAction="#eliminarEquipo" />
+    </children>
 </AnchorPane>
