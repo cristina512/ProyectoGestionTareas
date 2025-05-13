@@ -9,7 +9,7 @@ class HelloApplication : Application() {
     override fun start(stage: Stage) {
         val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("hello-view.fxml"))
         val scene = Scene(fxmlLoader.load())
-        stage.title = "Hello!"
+        stage.title = "GESTOR DE TAREAS"
         stage.scene = scene
         stage.show()
     }
