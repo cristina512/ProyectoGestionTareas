@@ -7,7 +7,7 @@ class Comentario {
     var id_usuario=0
     var id_tarea=0
 
-    constructor(id_comentario: String, contenido: String, fecha_creacion: String, id_usuario: Int, id_tarea: Int) {
+    constructor(id_comentario: Int, contenido: String, fecha_creacion: String, id_usuario: Int, id_tarea: Int) {
         this.id_comentario = id_comentario
         this.contenido = contenido
         this.fecha_creacion = fecha_creacion
