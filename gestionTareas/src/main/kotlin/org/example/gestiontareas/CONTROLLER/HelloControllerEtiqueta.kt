@@ -1,7 +1,5 @@
 package org.example.gestiontareas.CONTROLLER
 
-import com.example.debbddajavafx.AccesoDatos.EtiquetaDAOImpl
-import com.example.debbddajavafx.Negocio.Etiqueta
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -10,12 +8,17 @@ import javafx.scene.control.Alert
 import javafx.scene.control.ComboBox
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import org.example.gestiontareas.DAO.EtiquetaDAOImpl
+import org.example.gestiontareas.NEGOCIO.Etiqueta
 
 class HelloControllerEtiqueta {
+
     @FXML
     private lateinit var comboEtiquetas: ComboBox<Etiqueta>
+
     @FXML
     private lateinit var txtCodigo: TextField
+
     @FXML
     private lateinit var txtDescripcion: TextField
 
@@ -25,11 +28,14 @@ class HelloControllerEtiqueta {
     fun initialize() {
         cargarEtiquetas()
 
+        // Bloquear edición del campo código (opcional)
+        txtCodigo.isEditable = false
+
         comboEtiquetas.setOnAction {
             val seleccionada = comboEtiquetas.selectionModel.selectedItem
             if (seleccionada != null) {
-                txtCodigo.text = seleccionada.codigo.toString()
-                txtDescripcion.text = seleccionada.descripcion
+                txtCodigo.text = seleccionada.id_etiqueta.toString()
+                txtDescripcion.text = seleccionada.nombre
             }
         }
     }
@@ -49,15 +55,26 @@ class HelloControllerEtiqueta {
     @FXML
     fun anadirEtiqueta(event: ActionEvent) {
         try {
-            val nuevoCodigo = dao.getAllEtiquetas().maxOfOrNull { it.codigo }?.plus(1) ?: 1
-            val descripcion = txtDescripcion.text
+            val listaEtiquetas = dao.getAllEtiquetas()
+            var maxCodigo = 0
 
+
+            for (etiqueta in listaEtiquetas) {
+                if (etiqueta.id_etiqueta > maxCodigo) {
+                    maxCodigo = etiqueta.id_etiqueta
+                }
+            }
+
+            val nuevoCodigo = maxCodigo + 1
+            val descripcion = txtDescripcion.text
+            val id_usuario=0
+            val id_equipo=0
             if (descripcion.isBlank()) {
                 mostrarAlerta("Advertencia", "La descripción no puede estar vacía.")
                 return
             }
 
-            if (dao.insertEtiqueta(Etiqueta(nuevoCodigo, descripcion))) {
+            if (dao.insertEtiqueta(Etiqueta(nuevoCodigo, descripcion,id_usuario,id_equipo))) {
                 mostrarAlerta("Éxito", "Etiqueta añadida con código $nuevoCodigo.")
                 cargarEtiquetas()
                 limpiarCampos()
@@ -74,8 +91,10 @@ class HelloControllerEtiqueta {
         try {
             val codigo = txtCodigo.text.toInt()
             val descripcion = txtDescripcion.text
+            val id_usuario=0
+            val id_equipo=0
 
-            if (dao.updateEtiqueta(Etiqueta(codigo, descripcion))) {
+            if (dao.updateEtiqueta(Etiqueta(codigo, descripcion,id_usuario,id_equipo))) {
                 mostrarAlerta("Éxito", "Etiqueta modificada correctamente.")
                 cargarEtiquetas()
                 limpiarCampos()
@@ -107,8 +126,13 @@ class HelloControllerEtiqueta {
     private fun limpiarCampos() {
         txtCodigo.clear()
         txtDescripcion.clear()
-        comboEtiquetas.selectionMod
-
     }
 
+    private fun mostrarAlerta(titulo: String, contenido: String) {
+        val alerta = Alert(Alert.AlertType.INFORMATION)
+        alerta.title = titulo
+        alerta.headerText = null
+        alerta.contentText = contenido
+        alerta.showAndWait()
+    }
 }

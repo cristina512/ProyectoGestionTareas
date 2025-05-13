@@ -1,7 +1,5 @@
 package org.example.gestiontareas.CONTROLLER
 
-import com.example.debbddajavafx.AccesoDatos.EquipoDAOImpl
-import com.example.debbddajavafx.Negocio.Equipo
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -10,6 +8,8 @@ import javafx.scene.control.Alert
 import javafx.scene.control.ComboBox
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import org.example.gestiontareas.DAO.EquipoDAOImpl
+import org.example.gestiontareas.NEGOCIO.Equipo
 
 
 class HelloControllerEquipo {
@@ -48,13 +48,15 @@ class HelloControllerEquipo {
     fun anadirEquipo(event: ActionEvent) {
         val nuevoId = dao.getAllEquipos().maxOfOrNull { it.id_equipo }?.plus(1) ?: 1
         val nombre = txtNombre.text
-
+        val descripcion=""
+        val fecha_creacion=""
+        val id_usu_lider=0
         if (nombre.isBlank()) {
             mostrarAlerta("Advertencia", "El nombre no puede estar vacío.")
             return
         }
 
-        if (dao.insertEquipo(Equipo(nuevoId, nombre))) {
+        if (dao.insertEquipo(Equipo(nuevoId, nombre, descripcion, fecha_creacion, id_usu_lider))) {
             mostrarAlerta("Éxito", "Equipo añadido correctamente.")
             cargarEquipos()
             limpiarCampos()
@@ -68,8 +70,11 @@ class HelloControllerEquipo {
         try {
             val id = txtId.text.toInt()
             val nombre = txtNombre.text
+            val descripcion=""
+            val fecha_creacion=""
+            val id_usu_lider=0
 
-            if (dao.updateEquipo(Equipo(id, nombre))) {
+            if (dao.updateEquipo(Equipo(id, nombre,descripcion,fecha_creacion,id_usu_lider))) {
                 mostrarAlerta("Éxito", "Equipo modificado correctamente.")
                 cargarEquipos()
                 limpiarCampos()

@@ -2,8 +2,8 @@ package org.example.gestiontareas.CONTROLLER
 
 import javafx.fxml.FXML
 import javafx.scene.control.*
-import dao.ComentarioDAOImpl
-import models.Comentario
+import org.example.gestiontareas.DAO.ComentarioDAOImpl
+import org.example.gestiontareas.NEGOCIO.Comentario
 
 class HelloControllerComentario {
     @FXML
@@ -29,21 +29,22 @@ class HelloControllerComentario {
 
     @FXML
     fun initialize() {
-        // Configurar las columnas
-        idColumn.setCellValueFactory { it.value.id_comentarioProperty().asObject() }
-        contenidoColumn.setCellValueFactory { it.value.contenidoProperty() }
-        fechaColumn.setCellValueFactory { it.value.fecha_creacionProperty() }
-        usuarioColumn.setCellValueFactory { it.value.id_usuarioProperty().asObject() }
-        tareaColumn.setCellValueFactory { it.value.id_tareaProperty().asObject() }
+        // Configurar columnas SIN propiedades
+        idColumn.setCellValueFactory { javafx.beans.property.SimpleObjectProperty(it.value.id_comentario) }
+        contenidoColumn.setCellValueFactory { javafx.beans.property.SimpleObjectProperty(it.value.contenido) }
+        fechaColumn.setCellValueFactory { javafx.beans.property.SimpleObjectProperty(it.value.fecha_creacion) }
+        usuarioColumn.setCellValueFactory { javafx.beans.property.SimpleObjectProperty(it.value.id_usuario) }
+        tareaColumn.setCellValueFactory { javafx.beans.property.SimpleObjectProperty(it.value.id_tarea) }
 
         // Cargar datos
         comentarioTable.items.addAll(comentarioDAO.getAllComentarios())
 
-        // Configurar botones
+        // Botones
         addButton.setOnAction { agregarComentario() }
         editButton.setOnAction { editarComentario() }
         deleteButton.setOnAction { eliminarComentario() }
     }
+
 
     private fun agregarComentario() {
         // Lógica para agregar un comentario
