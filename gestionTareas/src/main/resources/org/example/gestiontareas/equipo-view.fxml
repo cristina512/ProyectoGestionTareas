@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EquipoController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.gestiontareas.CONTROLLER.HelloControllerEquipo">
     <children>
         <TableView fx:id="tablaEquipo" layoutX="14" layoutY="14" prefHeight="200" prefWidth="400">
             <columns>
@@ -10,8 +10,8 @@
             </columns>
         </TableView>
         <TextField fx:id="txtNombre" layoutX="14" layoutY="230" promptText="Nombre" />
-        <Button text="Agregar" layoutX="14" layoutY="270" onAction="#agregarEquipo" />
-        <Button text="Editar" layoutX="90" layoutY="270" onAction="#editarEquipo" />
-        <Button text="Eliminar" layoutX="160" layoutY="270" onAction="#eliminarEquipo" />
+        <Button text="Agregar" layoutX="14" layoutY="270" onAction="#anadirEquipo" />
+        <Button text="Editar" layoutX="90" layoutY="270" onAction="#modificarEquipo" />
+        <Button text="Eliminar" layoutX="160" layoutY="270" onAction="#borrarEquipo" />
     </children>
 </AnchorPane>

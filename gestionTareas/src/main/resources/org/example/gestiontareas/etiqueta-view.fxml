@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.debbddajavafx.Presentacion.EtiquetasController">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.gestiontareas.CONTROLLER.HelloControllerEtiqueta">
     <ComboBox fx:id="comboEtiquetas" />
     <TextField fx:id="txtCodigo" promptText="Código" />
     <TextField fx:id="txtDescripcion" promptText="Descripción" />

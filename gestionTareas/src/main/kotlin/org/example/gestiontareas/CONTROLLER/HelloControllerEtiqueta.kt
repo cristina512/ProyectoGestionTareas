@@ -27,8 +27,7 @@ class HelloControllerEtiqueta {
     @FXML
     fun initialize() {
         cargarEtiquetas()
-
-        // Bloquear edición del campo código (opcional)
+        
         txtCodigo.isEditable = false
 
         comboEtiquetas.setOnAction {
