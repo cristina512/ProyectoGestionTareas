@@ -14,12 +14,12 @@
         <MenuBar layoutX="172.0" layoutY="65.0">
             <menus>
                 <Menu text="Gestión">
-                    <MenuItem fx:id="menuItemComentario" onAction="#abrirComentario" text="Comentario" />
-                    <MenuItem fx:id="menuItemEquipo" onAction="#abrirEquipo" text="Equipo" />
-                    <MenuItem fx:id="menuItemEtiqueta" onAction="#abrirEtiqueta" text="Etiqueta" />
-                    <MenuItem fx:id="menuItemProyecto" onAction="#abrirProyecto" text="Proyecto" />
-                    <MenuItem fx:id="menuItemTarea" onAction="#abrirTarea" text="Tarea" />
-                    <MenuItem fx:id="menuItemUsuario" onAction="#abrirUsuario" text="Usuario" />
+                    <MenuItem fx:id="menuItemComentario" onAction="#cargarComentarios" text="Comentario" />
+                    <MenuItem fx:id="menuItemEquipo" onAction="#cargarEquipos" text="Equipo" />
+                    <MenuItem fx:id="menuItemEtiqueta" onAction="#cargarEtiquetas" text="Etiqueta" />
+                    <MenuItem fx:id="menuItemProyecto" onAction="#cargarProyectos" text="Proyecto" />
+                    <MenuItem fx:id="menuItemTarea" onAction="#cargarTareas" text="Tarea" />
+                    <MenuItem fx:id="menuItemUsuario" onAction="#cargarUsuarios" text="Usuario" />
                 </Menu>
             </menus>
         </MenuBar>

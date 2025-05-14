@@ -1,7 +1,5 @@
 package org.example.gestiontareas.CONTROLLER
 
-import com.example.debbddajavafx.AccesoDatos.UsuarioDAOImpl
-import com.example.debbddajavafx.Negocio.Usuario
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -10,6 +8,8 @@ import javafx.scene.control.Alert
 import javafx.scene.control.ComboBox
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import org.example.gestiontareas.DAO.UsuarioDAOImpl
+import org.example.gestiontareas.NEGOCIO.Usuario
 
 class HelloControllerUsuario {
     @FXML private lateinit var comboUsuarios: ComboBox<Usuario>
@@ -25,7 +25,7 @@ class HelloControllerUsuario {
         comboUsuarios.setOnAction {
             val seleccionada = comboUsuarios.selectionModel.selectedItem
             if (seleccionada != null) {
-                txtCodigo.text = seleccionada.codigo.toString()
+                txtCodigo.text = seleccionada.id_usuario.toString()
                 txtNombre.text = seleccionada.nombre
             }
         }
@@ -46,15 +46,17 @@ class HelloControllerUsuario {
     @FXML
     fun anadirUsuario(event: ActionEvent) {
         try {
-            val nuevoCodigo = dao.getAllUsuarios().maxOfOrNull { it.codigo }?.plus(1) ?: 1
+            val nuevoCodigo = dao.getAllUsuarios().maxOfOrNull { it.id_usuario }?.plus(1) ?: 1
             val nombre = txtNombre.text
-
+            val email=""
+            val password=""
+            val fecha_registro=""
             if (nombre.isBlank()) {
                 mostrarAlerta("Advertencia", "El nombre no puede estar vacío.")
                 return
             }
 
-            if (dao.insertUsuario(Usuario(nuevoCodigo, nombre))) {
+            if (dao.insertUsuario(Usuario(nuevoCodigo, nombre,email,password,fecha_registro))) {
                 mostrarAlerta("Éxito", "Usuario añadido con código $nuevoCodigo.")
                 cargarUsuarios()
                 limpiarCampos()
@@ -71,8 +73,10 @@ class HelloControllerUsuario {
         try {
             val codigo = txtCodigo.text.toInt()
             val nombre = txtNombre.text
-
-            if (dao.updateUsuario(Usuario(codigo, nombre))) {
+            val email=""
+            val password=""
+            val fecha_registro=""
+            if (dao.updateUsuario(Usuario(codigo, nombre,email,password,fecha_registro))) {
                 mostrarAlerta("Éxito", "Usuario modificado correctamente.")
                 cargarUsuarios()
                 limpiarCampos()

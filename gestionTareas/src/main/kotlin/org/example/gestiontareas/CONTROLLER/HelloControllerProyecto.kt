@@ -56,7 +56,10 @@ class HelloControllerProyecto {
             fun anadirProyecto(event: ActionEvent) {
                 try {
                     val listaProyectos = dao.getAllProyectos()
-
+                    val descripcion=""
+                    val fecha_inicio=""
+                    val fecha_fin=""
+                    val id_equipo=""
                     var maxCodigo = 0
                     for (proyecto in listaProyectos) {
                         if (proyecto.id_proyecto > maxCodigo) {
@@ -74,7 +77,7 @@ class HelloControllerProyecto {
                     }
 
 
-                    val proyecto = Proyecto(nuevoCodigo, nombre)
+                    val proyecto = Proyecto(nuevoCodigo, nombre, descripcion,fecha_inicio, fecha_fin, id_equipo)
 
                     if (dao.insertProyecto(proyecto)) {
                         mostrarAlerta("Éxito", "Proyecto añadido con código $nuevoCodigo.")
@@ -87,24 +90,6 @@ class HelloControllerProyecto {
                     println("Error al añadir el proyecto: ${e.message}")
                     mostrarAlerta("Error", "Error al añadir: ${e.message}")
                 }
-            }
-
-            val nombre = txtNombre.text
-            val descripcion=""
-            val fecha_inicio=""
-            val fecha_fin=""
-            val id_equipo=""
-            if (nombre.isBlank()) {
-                mostrarAlerta("Advertencia", "El nombre no puede estar vacío.")
-                return
-            }
-
-            if (dao.insertProyecto(Proyecto(nuevoCodigo, nombre,descripcion,fecha_inicio,fecha_fin,id_equipo))) {
-                mostrarAlerta("Éxito", "Proyecto añadido con código $nuevoCodigo.")
-                cargarProyectos()
-                limpiarCampos()
-            } else {
-                mostrarAlerta("Error", "No se pudo añadir el proyecto.")
             }
         } catch (e: Exception) {
             mostrarAlerta("Error", "Error al añadir: ${e.message}")

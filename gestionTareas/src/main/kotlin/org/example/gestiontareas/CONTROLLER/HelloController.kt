@@ -1,4 +1,4 @@
-package com.example.debbddajavafx.Presentacion
+package org.example.gestiontareas.CONTROLLER
 
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -10,33 +10,33 @@ import javafx.stage.Stage
 class HelloController {
 
     @FXML
-    fun cargarCategorias(event: ActionEvent) {
-        cargarVentana("categorias.fxml", "Gestionar Categorías")
+    fun cargarComentarios(event: ActionEvent) {
+        cargarVentana("comentario-view.fxml", "Gestionar Comentarios")
     }
 
     @FXML
     fun cargarProyectos(event: ActionEvent) {
-        cargarVentana("proyecto.fxml", "Gestionar Proyectos")
+        cargarVentana("proyecto-view.fxml", "Gestionar Proyectos")
     }
 
     @FXML
     fun cargarTareas(event: ActionEvent) {
-        cargarVentana("tarea.fxml", "Gestionar Tareas")
+        cargarVentana("tarea-view.fxml", "Gestionar Tareas")
     }
 
     @FXML
     fun cargarUsuarios(event: ActionEvent) {
-        cargarVentana("usuario.fxml", "Gestionar Usuarios")
+        cargarVentana("usuario-view.fxml", "Gestionar Usuarios")
     }
 
     @FXML
     fun cargarEquipos(event: ActionEvent) {
-        cargarVentana("equipo.fxml", "Gestionar Equipos")
+        cargarVentana("equipo-view.fxml", "Gestionar Equipos")
     }
 
     @FXML
     fun cargarEtiquetas(event: ActionEvent) {
-        cargarVentana("etiqueta.fxml", "Gestionar Etiquetas")
+        cargarVentana("etiqueta-view.fxml", "Gestionar Etiquetas")
     }
 
     private fun cargarVentana(fxmlFile: String, titulo: String) {

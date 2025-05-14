@@ -1,7 +1,5 @@
 package org.example.gestiontareas.CONTROLLER
 
-import com.example.debbddajavafx.AccesoDatos.TareaDAOImpl
-import com.example.debbddajavafx.Negocio.Tarea
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -10,6 +8,8 @@ import javafx.scene.control.Alert
 import javafx.scene.control.ComboBox
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import org.example.gestiontareas.DAO.TareaDAOImpl
+import org.example.gestiontareas.NEGOCIO.Tarea
 
 class HelloControllerTarea {
     @FXML private lateinit var comboTareas: ComboBox<Tarea>
@@ -25,8 +25,8 @@ class HelloControllerTarea {
         comboTareas.setOnAction {
             val seleccionada = comboTareas.selectionModel.selectedItem
             if (seleccionada != null) {
-                txtCodigo.text = seleccionada.codigo.toString()
-                txtNombre.text = seleccionada.nombre
+                txtCodigo.text = seleccionada.id_tarea.toString()
+                txtNombre.text = seleccionada.titulo
             }
         }
     }
@@ -46,15 +46,20 @@ class HelloControllerTarea {
     @FXML
     fun anadirTarea(event: ActionEvent) {
         try {
-            val nuevoCodigo = dao.getAllTareas().maxOfOrNull { it.codigo }?.plus(1) ?: 1
+            val nuevoCodigo = dao.getAllTareas().maxOfOrNull { it.id_tarea }?.plus(1) ?: 1
             val nombre = txtNombre.text
-
+            val descripcion=""
+            val fecha_creacion=""
+            val fecha_vencimiento=""
+            val id_usu_creador=0
+            val id_usu_asignado=0
+            val id_proyecto=0
             if (nombre.isBlank()) {
                 mostrarAlerta("Advertencia", "El nombre no puede estar vacío.")
                 return
             }
 
-            if (dao.insertTarea(Tarea(nuevoCodigo, nombre))) {
+            if (dao.insertTarea(Tarea(nuevoCodigo, nombre, descripcion, fecha_creacion, fecha_vencimiento, id_usu_creador, id_usu_asignado, id_proyecto))) {
                 mostrarAlerta("Éxito", "Tarea añadida con código $nuevoCodigo.")
                 cargarTareas()
                 limpiarCampos()
@@ -71,8 +76,13 @@ class HelloControllerTarea {
         try {
             val codigo = txtCodigo.text.toInt()
             val nombre = txtNombre.text
-
-            if (dao.updateTarea(Tarea(codigo, nombre))) {
+            val descripcion=""
+            val fecha_creacion=""
+            val fecha_vencimiento=""
+            val id_usu_creador=0
+            val id_usu_asignado=0
+            val id_proyecto=0
+            if (dao.updateTarea(Tarea(codigo, nombre, descripcion, fecha_creacion, fecha_vencimiento, id_usu_creador, id_usu_asignado, id_proyecto))) {
                 mostrarAlerta("Éxito", "Tarea modificada correctamente.")
                 cargarTareas()
                 limpiarCampos()
