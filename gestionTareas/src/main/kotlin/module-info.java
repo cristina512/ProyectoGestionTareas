@@ -6,5 +6,8 @@ module org.example.gestiontareas {
 
 
     opens org.example.gestiontareas to javafx.fxml;
+    opens org.example.gestiontareas.CONTROLLER to javafx.fxml;
     exports org.example.gestiontareas;
+    exports org.example.gestiontareas.CONTROLLER to javafx.fxml;
+
 }
