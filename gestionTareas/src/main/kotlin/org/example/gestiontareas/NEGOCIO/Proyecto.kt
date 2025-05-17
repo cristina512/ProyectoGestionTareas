@@ -4,9 +4,9 @@ class Proyecto {
     var id_proyecto=0
     var nombre=""
     var descripcion=""
-    var fecha_inicio=""
-    var fecha_fin=""
-    var id_equipo=""
+    var fecha_inicio:String?=""
+    var fecha_fin:String?=""
+    var id_equipo:String?=""
 
     constructor(
         id_proyecto: Int,

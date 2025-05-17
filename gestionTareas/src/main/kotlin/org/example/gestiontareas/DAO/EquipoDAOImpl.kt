@@ -27,7 +27,7 @@ class EquipoDAOImpl: EquipoDAO {
         val rs = st?.executeQuery(SQL_Equipo.SELECT_ALL)
         val equipos = mutableListOf<Equipo>()
         while (rs?.next() == true) {
-            val equipo = Equipo(rs.getInt("ID_EQUIPO"), rs.getString("NOMBRE"), rs.getString("DESCRIPCIÓN"), rs.getString("FECHA_CREACION"), rs.getInt("ID_USU_LIDER"))
+            val equipo = Equipo(rs.getInt("ID_EQUIPO"), rs.getString("NOMBRE"), rs.getString("DESCRIPCION"), rs.getString("FECHA_CREACION"), rs.getInt("ID_USU_LIDER"))
             equipos.add(equipo)
         }
         st?.close()

@@ -13,21 +13,34 @@ import org.example.gestiontareas.NEGOCIO.Equipo
 
 
 class HelloControllerEquipo {
-    @FXML private lateinit var comboEquipos: ComboBox<Equipo>
-    @FXML private lateinit var txtId: TextField
-    @FXML private lateinit var txtNombre: TextField
+    @FXML
+    private lateinit var comboEquipos: ComboBox<Equipo>
+
+    @FXML
+    private lateinit var txtDescripcion: TextField
+
+    @FXML
+    private lateinit var txtFechaCreacion: TextField
+
+    @FXML
+    private lateinit var txtIdUsuLider: TextField
+
+    @FXML
+    private lateinit var txtNombre: TextField
 
     private val dao = EquipoDAOImpl()
 
     @FXML
     fun initialize() {
         cargarEquipos()
-
         comboEquipos.setOnAction {
             val seleccionado = comboEquipos.selectionModel.selectedItem
             if (seleccionado != null) {
-                txtId.text = seleccionado.id_equipo.toString()
                 txtNombre.text = seleccionado.nombre
+                txtDescripcion.text=seleccionado.descripcion
+                txtFechaCreacion.text=seleccionado.fecha_creacion
+                txtIdUsuLider.text= seleccionado.id_usu_lider.toString()
+
             }
         }
     }
@@ -48,9 +61,9 @@ class HelloControllerEquipo {
     fun anadirEquipo(event: ActionEvent) {
         val nuevoId = dao.getAllEquipos().maxOfOrNull { it.id_equipo }?.plus(1) ?: 1
         val nombre = txtNombre.text
-        val descripcion=""
-        val fecha_creacion=""
-        val id_usu_lider=0
+        val descripcion=txtDescripcion.text
+        val fecha_creacion=txtFechaCreacion.text
+        val id_usu_lider=txtIdUsuLider.text.toInt()
         if (nombre.isBlank()) {
             mostrarAlerta("Advertencia", "El nombre no puede estar vacío.")
             return
@@ -68,12 +81,12 @@ class HelloControllerEquipo {
     @FXML
     fun modificarEquipo(event: ActionEvent) {
         try {
-            val id = txtId.text.toInt()
+            val seleccionado = comboEquipos.selectionModel.selectedItem
+            val id = seleccionado.id_equipo
             val nombre = txtNombre.text
-            val descripcion=""
-            val fecha_creacion=""
-            val id_usu_lider=0
-
+            val descripcion=txtDescripcion.text
+            val fecha_creacion=txtFechaCreacion.text
+            val id_usu_lider=txtIdUsuLider.text.toInt()
             if (dao.updateEquipo(Equipo(id, nombre,descripcion,fecha_creacion,id_usu_lider))) {
                 mostrarAlerta("Éxito", "Equipo modificado correctamente.")
                 cargarEquipos()
@@ -89,7 +102,8 @@ class HelloControllerEquipo {
     @FXML
     fun borrarEquipo(event: ActionEvent) {
         try {
-            val id = txtId.text.toInt()
+            val seleccionado = comboEquipos.selectionModel.selectedItem
+            val id = seleccionado.id_equipo
 
             if (dao.deleteEquipo(id)) {
                 mostrarAlerta("Éxito", "Equipo eliminado correctamente.")
@@ -104,8 +118,10 @@ class HelloControllerEquipo {
     }
 
     private fun limpiarCampos() {
-        txtId.clear()
         txtNombre.clear()
+        txtDescripcion.clear()
+        txtIdUsuLider.clear()
+        txtFechaCreacion.clear()
         comboEquipos.selectionModel.clearSelection()
     }
 
