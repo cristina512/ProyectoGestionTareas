@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="105.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gestiontareas.CONTROLLER.HelloController">
+    <children>
+
+        <!-- Barra de menú -->
+        <MenuBar layoutX="172.0" layoutY="65.0">
+            <menus>
+                <Menu text="Gestión">
+                    <MenuItem fx:id="menuItemComentario" onAction="#cargarComentarios" text="Comentario" />
+                    <MenuItem fx:id="menuItemEquipo" onAction="#cargarEquipos" text="Equipo" />
+                    <MenuItem fx:id="menuItemEtiqueta" onAction="#cargarEtiquetas" text="Etiqueta" />
+                    <MenuItem fx:id="menuItemProyecto" onAction="#cargarProyectos" text="Proyecto" />
+                    <MenuItem fx:id="menuItemTarea" onAction="#cargarTareas" text="Tarea" />
+                    <MenuItem fx:id="menuItemUsuario" onAction="#cargarUsuarios" text="Usuario" />
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <Label layoutX="40.0" layoutY="31.0" text="Gestión de Comentarios, Equipos, Etiquetas, Proyectos, Tareas y Usuarios">
+            <font>
+                <Font name="Cambria" size="12.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
+
