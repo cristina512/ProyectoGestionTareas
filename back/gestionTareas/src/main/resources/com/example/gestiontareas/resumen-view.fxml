@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="203.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiontareas.Presentacion.ResumenController">
+   <children>
+      <Button layoutX="23.0" layoutY="167.0" mnemonicParsing="false" text="Agregar" />
+      <Button layoutX="242.0" layoutY="167.0" mnemonicParsing="false" text="Editar" />
+      <TableView fx:id="tblResumen" layoutX="23.0" layoutY="14.0" prefHeight="153.0" prefWidth="485.0">
+        <columns>
+          <TableColumn fx:id="colUsuario" prefWidth="75.0" text="Usuario" />
+          <TableColumn fx:id="colTarea" prefWidth="75.0" text="Tarea" />
+            <TableColumn fx:id="colContenido" prefWidth="75.0" text="Contenido" />
+            <TableColumn fx:id="colFecha" prefWidth="75.0" text="Fecha" />
+        </columns>
+      </TableView>
+      <Button layoutX="449.0" layoutY="167.0" mnemonicParsing="false" text="Eliminar" />
+   </children>
+</AnchorPane>
